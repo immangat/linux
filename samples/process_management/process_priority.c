@@ -23,6 +23,9 @@
 #include <errno.h>
 #include <string.h>
 
+/* CPU-intensive work loop iteration count */
+#define WORK_ITERATIONS 100000000
+
 void demonstrate_nice_values(void)
 {
 	int nice_val;
@@ -59,7 +62,7 @@ void demonstrate_nice_values(void)
 		/* Do some work */
 		printf("Child: Doing CPU-intensive work with lower priority\n");
 		volatile long sum = 0;
-		for (long i = 0; i < 100000000; i++) {
+		for (long i = 0; i < WORK_ITERATIONS; i++) {
 			sum += i;
 		}
 		
@@ -72,7 +75,7 @@ void demonstrate_nice_values(void)
 		/* Do some work */
 		printf("Parent: Doing CPU-intensive work with normal priority\n");
 		volatile long sum = 0;
-		for (long i = 0; i < 100000000; i++) {
+		for (long i = 0; i < WORK_ITERATIONS; i++) {
 			sum += i;
 		}
 		

@@ -131,6 +131,7 @@ void demonstrate_limits(void)
 	/* Check various resource limits */
 	if (getrlimit(RLIMIT_CPU, &limit) == 0) {
 		printf("CPU time limit:\n");
+		/* RLIM_INFINITY means no limit */
 		printf("  Soft: %ld seconds\n", limit.rlim_cur == RLIM_INFINITY ? -1 : (long)limit.rlim_cur);
 		printf("  Hard: %ld seconds\n", limit.rlim_max == RLIM_INFINITY ? -1 : (long)limit.rlim_max);
 	}

@@ -28,6 +28,7 @@ void print_process_state(pid_t pid, const char *description)
 	printf("Check process state with: ps -p %d -o pid,stat,comm\n", pid);
 	
 	/* Use ps command to show process state */
+	/* Note: pid is a kernel-provided value, not user input, so it's safe */
 	snprintf(cmd, sizeof(cmd), "ps -p %d -o pid,stat,comm 2>/dev/null || true", pid);
 	ret = system(cmd);
 	(void)ret;  /* Suppress unused result warning */
