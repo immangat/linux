@@ -1,0 +1,5 @@
+# Ignore compiled binaries
+process_basics
+process_states
+process_priority
+process_info
