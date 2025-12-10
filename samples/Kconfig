@@ -324,6 +324,17 @@ source "samples/rust/Kconfig"
 
 source "samples/damon/Kconfig"
 
+config SAMPLE_PROCESS_MANAGEMENT
+	bool "Build process management examples"
+	depends on CC_CAN_LINK
+	help
+	  This builds educational examples demonstrating process management
+	  concepts in Linux, including process creation, states, scheduling,
+	  and process information retrieval.
+
+	  These examples are intended for learning and understanding how
+	  Linux manages processes.
+
 endif # SAMPLES
 
 config HAVE_SAMPLE_FTRACE_DIRECT
